@@ -27,7 +27,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Codificio\\BatchedRequestServiceProvider"
+        "Codificio\\BatchedRequest\\BatchedRequestServiceProvider"
       ]
     }
   }
