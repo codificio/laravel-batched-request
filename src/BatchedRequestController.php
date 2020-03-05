@@ -8,11 +8,11 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
-class HandleBatchedRequest extends Controller
+class BatchedRequestController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __invoke(Request $request)
+    public function handle(Request $request)
     {
         $batch = $request->get('batch', []);
         $batchedRequest = new BatchedRequest($batch, $request);

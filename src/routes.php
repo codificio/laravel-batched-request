@@ -13,5 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('batch', "HandleBatchedRequest");
+Route::post('batch', "Codificio\BatchedRequest\BatchedRequestController@handle");
 

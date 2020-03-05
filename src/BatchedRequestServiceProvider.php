@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-use Codificio\BatchedRequest\BatchedRequest;
-
 class BatchedRequestServiceProvider extends ServiceProvider
 {
 
