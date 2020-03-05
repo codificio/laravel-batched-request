@@ -19,19 +19,6 @@ class BatchedRequestServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
-
-        Route::post('batch', function (Request $request) {
-
-            $batch = $request->get('batch', []);
-
-            $batchedRequest = new BatchedRequest($batch, $request);
-
-            $batchedRequest->execute();
-
-            return $batchedRequest->getResponses();
-
-        });
-
     }
 
 }
