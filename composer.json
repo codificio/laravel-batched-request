@@ -2,7 +2,10 @@
   "name": "codificio/laravel-batched-request",
   "description": "Service provider for batched requests in Laravel framework (Laravel PHP).",
   "homepage": "https://github.com/codificio/laravel-batched-request",
-  "keywords": ["laravel","batch"],
+  "keywords": [
+    "laravel",
+    "batch"
+  ],
   "type": "library",
   "autoload": {
     "psr-4": {
@@ -20,7 +23,6 @@
     "flow/jsonpath": "^0.4.0"
   },
   "license": "MIT",
-  "minimum-stability": "dev",
   "require-dev": {
     "phpunit/phpunit": "^6.0"
   },
