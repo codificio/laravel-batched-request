@@ -2,6 +2,7 @@
 
 namespace Codificio\BatchedRequest;
 
+use Closure;
 use Illuminate\Routing\Middleware\ThrottleRequests as ParentMiddleware;
 
 class ThrottleRequests extends ParentMiddleware
