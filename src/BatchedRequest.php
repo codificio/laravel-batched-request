@@ -42,6 +42,18 @@ class BatchedRequest
     }
 
     /**
+     * Check if the provided request is inside the batch.
+     *
+     * @param Request $request
+     * @return bool
+     */
+    public static function isInternalRequest(Request $request)
+    {
+        $uri = $request->server->get('REQUEST_URI');
+        return $request->has('batch') && $uri !== '/batch' ? true : false;
+    }
+
+    /**
      * Executes the batch of requests
      * @return null
      */
