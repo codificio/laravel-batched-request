@@ -49,8 +49,8 @@ class BatchedRequest
      */
     public static function isInternalRequest(Request $request)
     {
-        $uri = $request->server->get('REQUEST_URI');
-        return $request->has('batch') && $uri !== '/batch' ? true : false;
+        $isInternal = $request->server->get('IS_INTERNAL');
+        return $isInternal ? true : false;
     }
 
     /**
@@ -100,6 +100,9 @@ class BatchedRequest
         $method = isset($batchedRequest['method']) ? $batchedRequest['method'] : "GET";
         $parameters = $this->getParameters($batchedRequest);
 
+        $server = $this->request->server->all();
+        $server['IS_INTERNAL'] = true;
+
         $subRequest = SymfonyRequest::create(
             $batchedRequest['relative_url'],
             $method,
@@ -108,7 +111,8 @@ class BatchedRequest
             // this allows subrequests to access uploaded files, access authentication cookies, headers, etc.
             $this->request->cookies->all(),
             $this->request->files->all(),
-            $this->request->server->all()
+            $server,
+            json_encode($parameters)
         );
 
         $subRequestResponse = app()->handle($subRequest);
